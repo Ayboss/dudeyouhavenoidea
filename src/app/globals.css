@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #2a2d2f;
+  --foreground: #ccc;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   color: var(--foreground);
@@ -24,4 +24,28 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.cutomtransition {
+  /* transition: width 0.3s ease; */
+  cursor: grab;
+}
+.customlink {
+  position: relative;
+  /* display: inline-block; */
+  width: fit-content;
+}
+
+.customlink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background-color: wheat;
+  transition: width 0.2s ease;
+  left: 0;
+}
+.customlink:hover::after {
+  width: 100%;
 }
