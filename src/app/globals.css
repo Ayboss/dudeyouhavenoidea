@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --background: #2a2d2f;
@@ -20,11 +18,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@layer utilities {
+/* @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
 
 .cutomtransition {
   /* transition: width 0.3s ease; */
