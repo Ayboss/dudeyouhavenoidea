@@ -6,23 +6,22 @@ import dp from "../assets/dp.jpeg";
 import youtube from "../assets/youtube.svg";
 import linkedin from "../assets/linkedin.svg";
 import twitter from "../assets/twitter.svg";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 function Layout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname()
+  const pathname = usePathname();
   const resizer = useRef<HTMLDivElement>(null);
   const isResizing = useRef(false);
   const startx = useRef(0);
   const startWidth = useRef(0);
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     if (!resizer.current) return;
-    if (pathname != "/"){
-      resizer.current.style.width =  "400px";
+    if (pathname != "/") {
+      resizer.current.style.width = "400px";
     }
-  },
-  [pathname])
+  }, [pathname]);
 
   useEffect(() => {
     resizer.current?.addEventListener("mousedown", (e) => {
@@ -67,6 +66,11 @@ function Layout({ children }: { children: React.ReactNode }) {
     document.removeEventListener("mousemove", resize);
     document.removeEventListener("mouseup", stopResize);
   };
+  const navigateclose = () => {
+    if (resizer.current) {
+      resizer.current.style.width = "400px";
+    }
+  };
   return (
     <div className="flex">
       <div className="w-[400px] bg-red-200"></div>
@@ -85,16 +89,24 @@ function Layout({ children }: { children: React.ReactNode }) {
             <p className="mb-8">Software Engineer | Hardware Engineer</p>
             <ul className="flex items-center flex-col gap-2">
               <li className="customlink">
-                <Link href={"/"}>About</Link>
+                <Link href={"/"} onClick={navigateclose}>
+                  About
+                </Link>
               </li>
               <li className="customlink">
-                <Link href={"/blog"}>Blog</Link>
+                <Link href={"/blog"} onClick={navigateclose}>
+                  Blog
+                </Link>
               </li>
               <li className="customlink">
-                <Link href={"/project"}>Projects</Link>
+                <Link href={"/project"} onClick={navigateclose}>
+                  Projects
+                </Link>
               </li>
               <li className="customlink">
-                <Link href={"/resume"}>Resume</Link>
+                <Link href={"/resume"} onClick={navigateclose}>
+                  Resume
+                </Link>
               </li>
             </ul>
             <div className="flex gap-7 justify-center items-center mt-8">
