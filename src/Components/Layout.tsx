@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "./Header";
 import Image from "next/image";
 import dp from "../assets/dp.jpeg";
@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 function Layout({ children }: { children: React.ReactNode }) {
+  const [navscreen, setNavScreen] = useState(400);
   const pathname = usePathname();
   const resizer = useRef<HTMLDivElement>(null);
   const isResizing = useRef(false);
@@ -17,25 +18,45 @@ function Layout({ children }: { children: React.ReactNode }) {
   const startWidth = useRef(0);
 
   useEffect(() => {
-    if (!resizer.current) return;
-    if (pathname != "/") {
-      resizer.current.style.width = "400px";
-    }
-  }, [pathname]);
+    const compute = () => {
+      const w = window.innerWidth;
+      setNavScreen(w < 700 ? 10 : 400);
+      // keep the resizer width in sync when you cross the threshold
+      if (resizer.current) {
+        resizer.current.style.width = `${w < 700 ? 10 : 400}px`;
+      }
+    };
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
+  }, []);
 
   useEffect(() => {
-    resizer.current?.addEventListener("mousedown", (e) => {
+    if (!resizer.current) return;
+    if (pathname != "/") {
+      resizer.current.style.width = `${navscreen}px`;
+    }
+  }, [pathname, navscreen]);
+
+  useEffect(() => {
+    const el = resizer.current;
+    if (!el) return;
+
+    const onMouseDown = (e: MouseEvent) => {
       startx.current = e.clientX;
-      if (resizer.current) {
-        resizer.current.style.transition = "none";
-        startWidth.current = parseInt(
-          window.getComputedStyle(resizer.current).width,
-          10
-        );
-        document.addEventListener("mousemove", resize);
-        document.addEventListener("mouseup", stopResize);
-      }
-    });
+      el.style.transition = "none";
+      startWidth.current = parseInt(window.getComputedStyle(el).width, 10);
+      isResizing.current = true; // <-- important
+      document.addEventListener("mousemove", resize);
+      document.addEventListener("mouseup", stopResize);
+    };
+
+    el.addEventListener("mousedown", onMouseDown);
+    return () => {
+      el.removeEventListener("mousedown", onMouseDown);
+      document.removeEventListener("mousemove", resize);
+      document.removeEventListener("mouseup", stopResize);
+    };
   }, []);
 
   const resize = (e: any) => {
@@ -44,8 +65,8 @@ function Layout({ children }: { children: React.ReactNode }) {
 
     let newwidth = startWidth.current + e.clientX - startx.current;
 
-    if (newwidth < 400) {
-      newwidth = 400;
+    if (newwidth < navscreen) {
+      newwidth = navscreen;
     }
     resizer.current.style.width = newwidth + "px";
     return;
@@ -57,7 +78,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       const halfWindowWidth = window.innerWidth / 2;
       resizer.current.style.transition = "width 0.3s ease";
       if (width <= halfWindowWidth) {
-        resizer.current.style.width = "400px";
+        resizer.current.style.width = `${navscreen}px`;
       } else {
         resizer.current.style.width = "100vw";
       }
@@ -68,15 +89,15 @@ function Layout({ children }: { children: React.ReactNode }) {
   };
   const navigateclose = () => {
     if (resizer.current) {
-      resizer.current.style.width = "400px";
+      resizer.current.style.width = `${navscreen}px`;
     }
   };
   return (
     <div className="flex">
-      <div className="w-[400px] bg-red-200"></div>
+      <div style={{ width: `${navscreen}px` }} className=" bg-red-200"></div>
       <div className="pl-14 pr-5 max-w-[864px] flex-1">
         <div
-          className="fixed w-screen h-screen top-0 left-0 bg-black cutomtransition flex justify-center"
+          className="fixed w-screen h-screen top-0 left-0 bg-black cutomtransition flex justify-center overflow-hidden"
           ref={resizer}
         >
           <div className="text-center mt-44">
