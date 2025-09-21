@@ -57,7 +57,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       document.removeEventListener("mousemove", resize);
       document.removeEventListener("mouseup", stopResize);
     };
-  }, []);
+  }, [navscreen]);
 
   const resize = (e: any) => {
     if (!isResizing) return;
@@ -92,9 +92,15 @@ function Layout({ children }: { children: React.ReactNode }) {
       resizer.current.style.width = `${navscreen}px`;
     }
   };
+
+  const openNavigation = () => {
+    if (resizer.current) {
+      resizer.current.style.width = "100vw";
+    }
+  };
   return (
     <div className="flex">
-      <div style={{ width: `${navscreen}px` }} className=" bg-red-200"></div>
+      <div style={{ width: `${navscreen}px` }} className=" bg-white"></div>
       <div className="pl-14 pr-5 max-w-[864px] flex-1">
         <div
           className="fixed w-screen h-screen top-0 left-0 bg-black cutomtransition flex justify-center overflow-hidden"
@@ -143,7 +149,7 @@ function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
         </div>
-        <Header />
+        <Header openNavigation={openNavigation} />
 
         {children}
       </div>
