@@ -1,6 +1,7 @@
-"use client"
+"use client";
 import Card from "@/Components/Card";
-import { useRouter } from 'next/navigation';
+import CardContainer from "@/Components/CardContainer";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const router = useRouter();
@@ -20,25 +21,25 @@ export default function Home() {
 
         <section className="mb-20">
           <h2 className="text-[24px] font-bold mb-8">2024</h2>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10">
+          <CardContainer>
             <Card />
             <Card />
             <Card />
             <Card />
             <Card />
             <Card />
-          </div>
+          </CardContainer>
         </section>
         <section>
           <h2 className="text-[24px] font-bold mb-8">2024</h2>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10">
+          <CardContainer>
             <Card />
             <Card />
             <Card />
             <Card />
             <Card />
             <Card />
-          </div>
+          </CardContainer>
         </section>
       </div>
     </main>

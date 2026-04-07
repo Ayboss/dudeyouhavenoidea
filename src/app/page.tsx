@@ -1,4 +1,5 @@
 import Card from "@/Components/Card";
+import CardContainer from "@/Components/CardContainer";
 
 export default function Home() {
   return (
@@ -8,18 +9,25 @@ export default function Home() {
       </h1>
       <div>
         <p className="mb-4">
-        Hi, I’m Lawal Ayobami, a Computer Engineer with 4 years of experience in software development and about 1 year in IoT. I’ve been a Frontend Engineer, Backend Engineer, DevOps Engineer, Mobile Engineer... basically, if it’s code, I’ve probably done it—sometimes even things I’m not sure have a name!
+          Hi, I’m Lawal Ayobami, a Computer Engineer with 4 years of experience
+          in software development and about 1 year in IoT. I’ve been a Frontend
+          Engineer, Backend Engineer, DevOps Engineer, Mobile Engineer...
+          basically, if it’s code, I’ve probably done it—sometimes even things
+          I’m not sure have a name!
         </p>
         <p className="mb-4">
-        Outside of the technical world, I have a range of hobbies that keep life interesting—drawing, playing the guitar, and even dabbling in close-up magic and sleight of hand. I might not be a pro at any of them, but hey, I give it my all! 🎨🎸✨
+          Outside of the technical world, I have a range of hobbies that keep
+          life interesting—drawing, playing the guitar, and even dabbling in
+          close-up magic and sleight of hand. I might not be a pro at any of
+          them, but hey, I give it my all! 🎨🎸✨
         </p>
       </div>
       <div className="mt-10">
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10">
-            <Card />
-            <Card /> 
-          </div>
-          <p className="mt-3">More</p>
+        <CardContainer>
+          <Card />
+          <Card />
+        </CardContainer>
+        <p className="mt-3">More</p>
       </div>
     </main>
   );
