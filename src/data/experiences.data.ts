@@ -17,7 +17,7 @@ export const experiences = [
   {
     name: "Nova Studio ( Ready Designs )",
     duration: "April 2025 - April 2026",
-    role: "Backend Engineer",
+    role: "Frontend Engineer",
     description: [
       "Developed secure authentication and authorization systems using JWT, with role-based access controls.",
       "Designed and managed relational database models with Sequelize, implementing indexing and optimized queries for performance.",

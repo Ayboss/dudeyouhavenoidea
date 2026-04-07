@@ -1,8 +1,10 @@
 export const skills = [
   "AWS",
   " Python",
-  " C++ ",
-  " Node.js ",
+  " C++",
+  " Node.js",
+  "Express",
+  "Nestjs",
   " React ",
   " React Native (Android, iOS) ",
   " Redux ",
