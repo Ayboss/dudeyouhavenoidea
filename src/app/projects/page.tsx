@@ -13,29 +13,6 @@ function page() {
           <h3 className="text-[12px] text-[#ffffff40] ">DESCRIPTION</h3>
           <p>Projects I was involved in</p>
         </div>
-
-        <section className="mb-20">
-          <h2 className="text-[24px] font-bold mb-8">2024</h2>
-          <CardContainer>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </CardContainer>
-        </section>
-        <section>
-          <h2 className="text-[24px] font-bold mb-8">2024</h2>
-          <CardContainer>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </CardContainer>
-        </section>
       </div>
     </main>
   );
