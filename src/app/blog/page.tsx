@@ -22,23 +22,11 @@ export default function Home() {
         <section className="mb-20">
           <h2 className="text-[24px] font-bold mb-8">2024</h2>
           <CardContainer>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </CardContainer>
-        </section>
-        <section>
-          <h2 className="text-[24px] font-bold mb-8">2024</h2>
-          <CardContainer>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Card
+              title="Variadic Function in C"
+              description="How to handle multiple variable in a function in C"
+              link="blog/variadic-in-c"
+            />
           </CardContainer>
         </section>
       </div>

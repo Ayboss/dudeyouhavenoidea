@@ -24,8 +24,11 @@ export default function Home() {
       </div>
       <div className="mt-10">
         <CardContainer>
-          <Card />
-          <Card />
+          <Card
+            title="Variadic Function in C"
+            description="How to handle multiple variable in a function in C"
+            link="blog/variadic-in-c"
+          />
         </CardContainer>
         <p className="mt-3">More</p>
       </div>
