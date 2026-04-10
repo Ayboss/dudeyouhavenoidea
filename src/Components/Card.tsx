@@ -16,7 +16,9 @@ function Card({ image, title, description, link }: ICard) {
       <Image
         alt="card"
         src={image ? image : card}
-        className="h-[230px] object-cover"
+        className="h-[230px] w-full object-cover"
+        width={100}
+        height={100}
       />
       <div className="py-4 px-2 text-[#ffffff9f] flex flex-col items-center gap-2">
         <h3 className="text-center text-[17px] ">

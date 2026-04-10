@@ -1,6 +1,7 @@
 "use client";
 import Card from "@/Components/Card";
 import CardContainer from "@/Components/CardContainer";
+import { blogs } from "@/data/blogs.data";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
@@ -22,11 +23,15 @@ export default function Home() {
         <section className="mb-20">
           <h2 className="text-[24px] font-bold mb-8">2024</h2>
           <CardContainer>
-            <Card
-              title="Variadic Function in C"
-              description="How to handle multiple variable in a function in C"
-              link="blog/variadic-in-c"
-            />
+            {blogs.map((blog, i) => (
+              <Card
+                image={blog?.image}
+                key={i}
+                title={blog.title}
+                description={blog.description}
+                link={blog.link}
+              />
+            ))}
           </CardContainer>
         </section>
       </div>
