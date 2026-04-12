@@ -20,7 +20,7 @@ function Card({ image, title, description, link }: ICard) {
         width={100}
         height={100}
       />
-      <div className="py-4 px-2 text-[#ffffff9f] flex flex-col items-center gap-2">
+      <div className="py-4 px-2 text-gray-600 dark:text-gray-400 flex flex-col items-center gap-2">
         <h3 className="text-center text-[17px] ">
           <Link
             className="border-b-2 border-[#4fb1ba80] hover:border-[#64eaf6] transition-all pb-1"

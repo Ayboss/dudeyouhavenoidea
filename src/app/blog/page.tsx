@@ -21,7 +21,7 @@ export default function Home() {
         </div>
 
         <section className="mb-20">
-          <h2 className="text-[24px] font-bold mb-8">2024</h2>
+          <h2 className="text-[24px] font-bold mb-8">2026</h2>
           <CardContainer>
             {blogs.map((blog, i) => (
               <Card

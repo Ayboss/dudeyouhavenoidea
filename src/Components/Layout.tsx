@@ -103,7 +103,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       <div style={{ width: `${navscreen}px` }} className=" bg-white"></div>
       <div className=" md:pl-14 pl-5 pr-5 max-w-[864px] flex-1">
         <div
-          className="fixed w-screen h-screen top-0 left-0 bg-black cutomtransition flex justify-center overflow-hidden"
+          className="fixed w-screen h-screen top-0 left-0 bg-[var(--navbg)] cutomtransition flex justify-center overflow-hidden"
           ref={resizer}
         >
           <div className="text-center mt-44">
