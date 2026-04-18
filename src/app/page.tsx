@@ -1,5 +1,6 @@
 import Card from "@/Components/Card";
 import CardContainer from "@/Components/CardContainer";
+import { blogs } from "@/data/blogs.data";
 
 export default function Home() {
   return (
@@ -24,13 +25,16 @@ export default function Home() {
       </div>
       <div className="mt-10">
         <CardContainer>
-          <Card
-            title="Variadic Function in C"
-            description="How to handle multiple variable in a function in C"
-            link="blog/variadic-in-c"
-          />
+          {blogs.slice(0, 3).map((blog, i) => (
+            <Card
+              image={blog?.image}
+              key={i}
+              title={blog.title}
+              description={blog.description}
+              link={blog.link}
+            />
+          ))}
         </CardContainer>
-        <p className="mt-3">More</p>
       </div>
     </main>
   );

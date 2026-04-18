@@ -34,9 +34,11 @@ function DataProvider({ children }: { children: React.ReactNode }) {
 
     if (info.darkMode) {
       root.classList.add("dark");
+
       localStorage.setItem("theme", "dark");
     } else {
       root.classList.remove("dark");
+
       localStorage.setItem("theme", "light");
     }
   }, [info.darkMode]);

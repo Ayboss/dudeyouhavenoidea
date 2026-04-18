@@ -1,13 +1,20 @@
 import Image from "next/image";
-import React, { useEffect } from "react";
-import hamburger from "../assets/menu.svg";
+import React, { useEffect, useState } from "react";
+
 import sunny from "../assets/sunny.svg";
 import moon from "../assets/moon.svg";
 import { useDataContext } from "@/context/DataContext";
 import Menu from "@/assets/Menu";
 function Header({ openNavigation }: { openNavigation: () => void }) {
   const { info, setInfo } = useDataContext();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
+  if (!mounted) return null;
+
+  console.log(info, "darkmode info");
   return (
     <nav className="mb-8">
       <ul className="flex">

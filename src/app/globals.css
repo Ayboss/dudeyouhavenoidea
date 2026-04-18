@@ -30,6 +30,7 @@ body {
 .customlink {
   position: relative;
   /* display: inline-block; */
+  display: block;
   width: fit-content;
 }
 
@@ -45,4 +46,17 @@ body {
 }
 .customlink:hover::after {
   width: 100%;
+}
+
+.rotate-animate {
+  animation: rotate infinite linear 700ms;
+}
+
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
 }
