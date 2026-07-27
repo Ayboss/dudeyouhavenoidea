@@ -109,7 +109,7 @@ function SideNavigation({
         className="fixed w-screen h-screen top-0 left-0 bg-black custom-bg cutomtransition flex justify-center overflow-hidden"
         ref={resizer}
       >
-        <div className="text-center mt-44 select-none">
+        <div className="text-center mt-44 select-none text-[#ededed]">
           <Image
             src={dp}
             className="w-[100px] h-[100px] object-cover rounded-full inline-block "
