@@ -106,10 +106,10 @@ function SideNavigation({
   return (
     <>
       <div
-        className="fixed w-screen h-screen top-0 left-0 bg-[var(--navbg)] cutomtransition flex justify-center overflow-hidden"
+        className="fixed w-screen h-screen top-0 left-0 bg-black custom-bg cutomtransition flex justify-center overflow-hidden"
         ref={resizer}
       >
-        <div className="text-center mt-44">
+        <div className="text-center mt-44 select-none">
           <Image
             src={dp}
             className="w-[100px] h-[100px] object-cover rounded-full inline-block "
@@ -132,7 +132,7 @@ function SideNavigation({
                 Blog
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 className="customlink"
                 href={"/projects"}
@@ -140,7 +140,7 @@ function SideNavigation({
               >
                 Projects
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 className="customlink"

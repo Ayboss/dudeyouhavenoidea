@@ -52,6 +52,11 @@ body {
   animation: rotate infinite linear 700ms;
 }
 
+.custom-bg {
+  background-image: url("../assets/bg.jpg");
+  background-size: cover;
+}
+
 @keyframes rotate {
   0% {
     rotate: 0deg;
